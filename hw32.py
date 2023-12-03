@@ -6,7 +6,7 @@ def solveSudoku(board):
     ans = []
     idx = board.index('0') if '0' in board else -1
     if idx == -1: #解完了
-        return [board]
+        return board
     exclude = {board[j] for j in range(16) if same_row(idx,j) or same_col(idx,j) or same_block(idx,j)}
     for m in set('1234')-exclude:
         ans += solveSudoku(board[:idx]+[m]+board[idx+1:])
@@ -16,7 +16,7 @@ for i in range(4):
     data+=input().split()
 ans=solveSudoku(data)
 temp=0
-for i in ans[0]:
+for i in ans:
     temp+=1
     if(temp==5):
         temp=1
