@@ -11,10 +11,11 @@ def find_zero(s_data):
                     c+=1
                     if c==len(i):
                         ans.append(k)
-    ans=set(sorted(ans,key=lambda x:sort_data.index(x)))
+    ans=sorted(set(ans),key=lambda x:sort_data.index(x))
     for i in ans:print(i,end=" ")
 def find_one(s_data):
     con=[]
+    ans=[]
     c_data=dict()
     temp=s_data.split(" + ")
     for i in temp:
@@ -25,8 +26,10 @@ def find_one(s_data):
             if i in data.get(j):
                 c_data[j]=c_data.get(j,0)+1
     for i in c_data.keys():
-        if c_data.get(i)==max(c_data.items()):
-            print(i,end=" ")
+        if c_data.get(i)==max(c_data.values()):
+            ans.append(i)
+    ans=sorted(set(ans),key=lambda x:sort_data.index(x))
+    for i in ans:print(i,end=" ")
 data={}
 for i in range(int(input())):
     temp=input().split()
