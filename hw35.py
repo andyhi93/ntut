@@ -13,6 +13,20 @@ def find_zero(s_data):
                         ans.append(k)
     ans=set(sorted(ans,key=lambda x:sort_data.index(x)))
     for i in ans:print(i,end=" ")
+def find_one(s_data):
+    con=[]
+    c_data=dict()
+    temp=s_data.split(" + ")
+    for i in temp:
+        for j in i.split():
+            con.append(j)
+    for i in con:
+        for j in data.keys():
+            if i in data.get(j):
+                c_data[j]=c_data.get(j,0)+1
+    for i in c_data.keys():
+        if c_data.get(i)==max(c_data.items()):
+            print(i,end=" ")
 data={}
 for i in range(int(input())):
     temp=input().split()
@@ -24,3 +38,8 @@ choose=int(input())
 if choose==0:
     for i in search_data:
         find_zero(i)
+        print()
+elif choose==1:
+    for i in search_data:
+        find_one(i)
+        print()
